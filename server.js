@@ -6,9 +6,12 @@ const app = express();
 
 connectDB();
 
+// middleware
+app.use(express.json({ extended: false }));
+
 
 app.get('/', (req, res) => {
-	res.send('BACKEND IS OPERATIONAL')
+	res.send('BACKEND IS OPERATIONAL...')
 });
 
 
@@ -21,5 +24,5 @@ app.use('/api/posts', require('./controllers/api/posts'));
 
 const PORT = process.env.Port || 5000;
 
-app.listen(PORT, () => console.log(`Server lives on PORT ${PORT}`));
+app.listen(PORT, () => console.log(`The Server is operational on PORT ${PORT}`));
 
